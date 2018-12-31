@@ -144,6 +144,7 @@ Correct:	PUSH {LR}
 			BLGT SecondDigit
 			STR R9, [R10]
 			BL UpdateScore
+			MOV R9, #1
 			
 			POP {LR}
 			BX LR
@@ -185,5 +186,31 @@ FourthDigit:PUSH {LR}
 
 			POP {LR}
 			BX LR
-UpdateScore:
+UpdateScore:PUSH {R11,R12,LR}
+
+			LDR R11, =SegNum
+
+			MOV R9, #4
+			MUL R9, [R10,#12]
+			LDR R9, [R11, R9]
+			MOV R12, R9
+			
+			MOV R9, #4
+			MUL R9, [R10, #8]
+			LDR R9, [R11, R9]
+			ADD R12, R9, LSL #8
+			
+			MOV R9, #4
+			MUL R9, [R10, #4]
+			LDR R9, [R11, R9]
+			ADD R12, R9, LSL #16
+
+			MOV R9, #4
+			MUL R9, [R10]
+			LDR R9, [R11, R9]
+			ADD R12, R9, LSL #24
+
+			LDR R11, =HEX3_HEX0_BASE
+
+			POP {LR}
 .end
