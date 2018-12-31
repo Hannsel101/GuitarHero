@@ -178,11 +178,9 @@ ThirdDigit:PUSH {LR}
 FourthDigit:PUSH {LR}
 			
 			MOV R9, #0
-			LDR R9, [R10, #8]
+			LDR R9, [R10, #12]
 			ADD R9, #1
-			CMP R9, #9
-			BLGT FourthDigit
-			STR R9, [R10, #8]
+			STR R9, [R10, #12]
 			MOV R9, #0			
 
 			POP {LR}
