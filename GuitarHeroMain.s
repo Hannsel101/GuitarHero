@@ -211,6 +211,8 @@ UpdateScore:PUSH {R11,R12,LR}
 			ADD R12, R9, LSL #24
 
 			LDR R11, =HEX3_HEX0_BASE
+			STR R12, [R11]
+			POP {R11, R12, LR}
 
-			POP {LR}
+			BX LR
 .end
