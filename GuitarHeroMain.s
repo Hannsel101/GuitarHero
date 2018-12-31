@@ -193,28 +193,28 @@ FourthDigit:PUSH {LR}
 			BX LR
 UpdateScore:PUSH {R11,R12,LR}
 
-			LDR R11, [R10, #12]
+			LDR R11, [R10]
 			MOV R9, #4
 			MUL R9, R11
 			LDR R11, =SegNum
 			LDR R9, [R11, R9]
 			MOV R12, R9
 			
-			LDR R11, [R10, #8]
+			LDR R11, [R10, #4]
 			MOV R9, #4
 			MUL R9, R11
 			LDR R11, =SegNum
 			LDR R9, [R11, R9]
 			ADD R12, R9, LSL #8
 			
-			LDR R11, [R10, #4]
+			LDR R11, [R10, #8]
 			MOV R9, #4
 			MUL R9, R11
 			LDR R11, =SegNum
 			LDR R9, [R11, R9]
 			ADD R12, R9, LSL #16
 
-			LDR R11, [R10]
+			LDR R11, [R10, #12]
 			MOV R9, #4
 			MUL R9, R11
 			LDR R11, =SegNum
